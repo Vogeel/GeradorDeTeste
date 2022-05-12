@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeradorDeTeste.WinApp.Compartilhado;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace GeradorDeTeste.WinFormsApp.ModuloDisciplina
         public ListagemDisciplinaControl()
         {
             InitializeComponent();
+        }
+
+        internal object ObtemNumeroDisciplinaSelecionado()
+        {
+            return GridDisciplina.SelecionarNumero<int>();
         }
     }
 }

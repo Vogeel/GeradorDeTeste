@@ -22,6 +22,9 @@ namespace GeradorDeTeste.WinFormsApp
         public TelaPrincipalForm()
         {
             InitializeComponent();
+            Instancia = this;
+
+
         }
 
         private void disciplinaMenuItem_Click(object sender, EventArgs e)

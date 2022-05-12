@@ -28,33 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.GridDisciplina = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.GridDisciplina)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // GridDisciplina
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(658, 398);
-            this.dataGridView1.TabIndex = 5;
+            this.GridDisciplina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridDisciplina.Location = new System.Drawing.Point(0, 0);
+            this.GridDisciplina.Name = "GridDisciplina";
+            this.GridDisciplina.RowTemplate.Height = 25;
+            this.GridDisciplina.Size = new System.Drawing.Size(658, 398);
+            this.GridDisciplina.TabIndex = 5;
             // 
             // ListagemDisciplinaControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.GridDisciplina);
             this.Name = "ListagemDisciplinaControl";
             this.Size = new System.Drawing.Size(659, 397);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridDisciplina)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView GridDisciplina;
     }
 }

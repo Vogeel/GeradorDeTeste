@@ -15,6 +15,10 @@ namespace GeradorDeTeste.Dominio.ModuloDisciplina
             this.Nome = titulo;
         }
 
+        public Disciplina()
+        {
+        }
+
         public override string ToString()
         {
             return Nome;

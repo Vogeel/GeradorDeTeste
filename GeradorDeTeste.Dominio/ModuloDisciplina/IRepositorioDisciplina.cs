@@ -12,5 +12,6 @@ namespace GeradorDeTeste.Dominio.ModuloDisciplina
     public interface IRepositorioDisciplina : IRepositorioBase<Disciplina>
     {
         List<Questao> SelecionarQuestoes();
+        Disciplina SelecionarPorNumero(object numero);
     }
 }
