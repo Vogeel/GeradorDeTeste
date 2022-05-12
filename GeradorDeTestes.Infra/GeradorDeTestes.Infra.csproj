@@ -9,4 +9,8 @@
     <Folder Include="ModuloMateria\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.0.1" />
+  </ItemGroup>
+
 </Project>

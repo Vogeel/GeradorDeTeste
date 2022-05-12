@@ -17,8 +17,8 @@ namespace GeradorDeTeste.WinFormsApp
 {
     public partial class TelaPrincipalForm : Form
     {
-
-        private Controlador controlador;
+        string tipoCadastro = "";
+        private ControladorBase controlador;
         public TelaPrincipalForm()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace GeradorDeTeste.WinFormsApp
 
         private void disciplinaMenuItem_Click(object sender, EventArgs e)
         {
-
+            tipoCadastro = "Disciplina";
             ConfigurarToolBox(new ConfiguracaoToolBoxTarefa());
 
             ListagemDisciplinaControl listagem = new();
@@ -38,6 +38,7 @@ namespace GeradorDeTeste.WinFormsApp
 
         private void materiaMenuItem_Click(object sender, EventArgs e)
         {
+            tipoCadastro = "Materia";
             ConfigurarToolBox(new ConfiguracaoToolBoxMateria());
 
             ListagemMateriaControl listagem = new();
@@ -47,6 +48,7 @@ namespace GeradorDeTeste.WinFormsApp
 
         private void QuestaoMenuItem_Click(object sender, EventArgs e)
         {
+            tipoCadastro = "Questao";
             ConfigurarToolBox(new ConfiguracaoToolBoxQuestao());
 
             ListagemQuestaoControl listagem = new();
@@ -70,7 +72,20 @@ namespace GeradorDeTeste.WinFormsApp
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            controlador.Inserir();
+            if (tipoCadastro == "Disciplina")
+            {
+                TelaCadastroDisciplinaForm tela = new();
+                
+            }
+            else if (tipoCadastro == "Materia")
+            {
+                TelaCadastroMateriaForm tela = new();
+            }
+            else if (tipoCadastro == "Questao")
+            {
+                TelaCadastroQuestaoForm tela = new();
+            }
+           
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

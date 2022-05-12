@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace GeradorDeTeste.Dominio.Compartilhado
 {
-    public class EntidadeBase
+    public abstract class EntidadeBase<T>
     {
+        public abstract void Atualizar(T registros);
     }
 }
