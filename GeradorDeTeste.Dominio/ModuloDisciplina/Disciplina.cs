@@ -28,5 +28,12 @@ namespace GeradorDeTeste.Dominio.ModuloDisciplina
         {
             throw new NotImplementedException();
         }
+        public object Clone()
+        {
+            return new Disciplina
+            {
+                Nome = this.Nome
+            };
+        }
     }
 }

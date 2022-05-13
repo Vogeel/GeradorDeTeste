@@ -1,4 +1,5 @@
-﻿using GeradorDeTeste.WinFormsApp.Compartilhado;
+﻿using GeradorDeTeste.Dominio.ModuloMateria;
+using GeradorDeTeste.WinFormsApp.Compartilhado;
 using GeradorDeTeste.WinFormsApp.ModuloDisciplina;
 using GeradorDeTeste.WinFormsApp.ModuloMateria;
 using GeradorDeTeste.WinFormsApp.ModuloQuestao;
@@ -17,14 +18,26 @@ namespace GeradorDeTeste.WinFormsApp
 {
     public partial class TelaPrincipalForm : Form
     {
+        private Dictionary<string, ControladorBase> controladores;
         string tipoCadastro = "";
         private ControladorBase controlador;
+        private DataContext contextoDados;
         public TelaPrincipalForm()
         {
             InitializeComponent();
             Instancia = this;
 
 
+        }
+        public static TelaPrincipalForm Instancia
+        {
+            get;
+            private set;
+        }
+
+        public void AtualizarMsgRodape(string mng)
+        {
+            labelRodape.Text = mng;
         }
 
         private void disciplinaMenuItem_Click(object sender, EventArgs e)
@@ -99,6 +112,49 @@ namespace GeradorDeTeste.WinFormsApp
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             controlador.Excluir();
+        }
+
+        public void ConfigurarTelaPrincipal(ToolStripMenuItem disciplinaSelecionada)
+        {
+            controlador = controladores["Disciplina"];
+
+
+
+            if (disciplinaSelecionada == default)
+            {
+                AtualizarMsgRodape("Selecione uma disciplina");
+                return;
+            }
+
+            List<Materia> materias = new List<Materia>();
+            foreach (var item in contextoDados.Materias)
+            {
+                if (item.Disciplina == disciplinaSelecionada)
+                {
+                    materias.Add(item);
+                }
+            }
+            if (materias.Count == 0)
+            {
+                AtualizarMsgRodape("registre uma materia com essa disciplina primeiro");
+                return;
+            }
+
+
+            IniciaControladorQuestao(materias);
+
+            controlador = controladores["Questao"];
+
+
+
+            ConfigurarToolBox();
+
+            ConfigurarListagem();
+        }
+
+        private void ConfigurarListagem()
+        {
+            throw new NotImplementedException();
         }
     }
 }

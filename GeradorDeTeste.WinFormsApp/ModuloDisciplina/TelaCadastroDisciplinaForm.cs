@@ -1,8 +1,8 @@
-﻿using GeradorDeTeste.Dominio.ModuloDisciplina;
+﻿using FluentValidation.Results;
+using GeradorDeTeste.Dominio.ModuloDisciplina;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -30,13 +30,16 @@ namespace GeradorDeTeste.WinFormsApp.ModuloDisciplina
             }
             set
             {
-                disciplina = value;
-                
+                disciplina = value;          
                 NomeDisciplinatextBox.Text = disciplina.Nome;
             }
         }
 
-        private void btnGravar_Click(object sender, EventArgs e)
+       
+
+        
+
+        private void btnInserir_Click(object sender, EventArgs e)
         {
             disciplina.Nome = NomeDisciplinatextBox.Text;
 
@@ -47,20 +50,10 @@ namespace GeradorDeTeste.WinFormsApp.ModuloDisciplina
             {
                 string erro = resultadoValidacao.Errors[0].ErrorMessage;
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+                TelaPrincipalForm.Instancia.AtualizarMsgRodape(erro);
 
                 DialogResult = DialogResult.None;
             }
-        }
-
-        private void TelaCadastroDisciplinaForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            TelaPrincipalForm.Instancia.AtualizarRodape("");
-        }
-
-        private void TelaCadastroDisciplinaForm_Load(object sender, EventArgs e)
-        {
-            TelaPrincipalForm.Instancia.AtualizarRodape("");
         }
     }
 }

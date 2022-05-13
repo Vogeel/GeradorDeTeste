@@ -41,7 +41,9 @@
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.panelRegistros = new System.Windows.Forms.Panel();
+            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +106,8 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelRodape});
             this.statusStrip1.Location = new System.Drawing.Point(0, 330);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(668, 22);
@@ -161,6 +165,11 @@
             this.panelRegistros.Size = new System.Drawing.Size(668, 273);
             this.panelRegistros.TabIndex = 6;
             // 
+            // labelRodape
+            // 
+            this.labelRodape.Name = "labelRodape";
+            this.labelRodape.Size = new System.Drawing.Size(0, 17);
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -175,6 +184,8 @@
             this.Text = "TelaPrincipalForm";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -197,5 +208,6 @@
         private System.Windows.Forms.ToolStripButton btnEditar;
         private System.Windows.Forms.ToolStripButton btnExcluir;
         private System.Windows.Forms.Panel panelRegistros;
+        private System.Windows.Forms.ToolStripStatusLabel labelRodape;
     }
 }

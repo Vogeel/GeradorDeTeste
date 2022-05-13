@@ -1,4 +1,5 @@
-﻿using GeradorDeTeste.WinApp.Compartilhado;
+﻿using GeradorDeTeste.Dominio.ModuloDisciplina;
+using GeradorDeTeste.WinApp.Compartilhado;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,9 +19,19 @@ namespace GeradorDeTeste.WinFormsApp.ModuloDisciplina
             InitializeComponent();
         }
 
-        internal object ObtemNumeroDisciplinaSelecionado()
+        public object ObtemNumeroDisciplinaSelecionado()
         {
             return GridDisciplina.SelecionarNumero<int>();
+        }
+
+        public void AtualizarRegistros(List<Disciplina> disciplinas)
+        {
+            GridDisciplina.Rows.Clear();
+
+            foreach (Disciplina disciplina in disciplinas)
+            {
+                GridDisciplina.Rows.Add( disciplina.Nome);
+            }
         }
     }
 }
