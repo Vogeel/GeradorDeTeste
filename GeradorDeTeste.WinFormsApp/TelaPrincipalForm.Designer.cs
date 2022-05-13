@@ -36,15 +36,15 @@
             this.executarTesteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fazerOTesteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripPrincipal = new System.Windows.Forms.ToolStrip();
             this.btnInserir = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.panelRegistros = new System.Windows.Forms.Panel();
-            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.toolStripPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -114,17 +114,23 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStrip1
+            // labelRodape
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelRodape.Name = "labelRodape";
+            this.labelRodape.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripPrincipal
+            // 
+            this.toolStripPrincipal.Enabled = false;
+            this.toolStripPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnInserir,
             this.btnEditar,
             this.btnExcluir});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(668, 33);
-            this.toolStrip1.TabIndex = 5;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStripPrincipal.Location = new System.Drawing.Point(0, 24);
+            this.toolStripPrincipal.Name = "toolStripPrincipal";
+            this.toolStripPrincipal.Size = new System.Drawing.Size(668, 33);
+            this.toolStripPrincipal.TabIndex = 5;
+            this.toolStripPrincipal.Text = "toolStrip1";
             // 
             // btnInserir
             // 
@@ -165,18 +171,13 @@
             this.panelRegistros.Size = new System.Drawing.Size(668, 273);
             this.panelRegistros.TabIndex = 6;
             // 
-            // labelRodape
-            // 
-            this.labelRodape.Name = "labelRodape";
-            this.labelRodape.Size = new System.Drawing.Size(0, 17);
-            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 352);
             this.Controls.Add(this.panelRegistros);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.toolStripPrincipal);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -186,8 +187,8 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.toolStripPrincipal.ResumeLayout(false);
+            this.toolStripPrincipal.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,7 +203,7 @@
         private System.Windows.Forms.ToolStripMenuItem QuestaoMenuItem;
         private System.Windows.Forms.ToolStripMenuItem executarTesteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fazerOTesteToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolStripPrincipal;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripButton btnInserir;
         private System.Windows.Forms.ToolStripButton btnEditar;

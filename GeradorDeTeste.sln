@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Dominio", "2.Dominio", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Infra", "3.Infra", "{F0BB89C4-3AE6-41D5-BDD3-477F447FE5C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeradorDeTeste.Dominio", "GeradorDeTeste.Dominio\GeradorDeTeste.Dominio.csproj", "{B0256C6B-579B-420E-971B-51DED144AD34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeradorDeTeste.Dominio", "GeradorDeTeste.Dominio\GeradorDeTeste.Dominio.csproj", "{B0256C6B-579B-420E-971B-51DED144AD34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeradorDeTestes.Infra", "GeradorDeTestes.Infra\GeradorDeTestes.Infra.csproj", "{0B3FF0BC-9CC3-47CF-9FA8-AFEB1EEA65A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeradorDeTeste.Infra", "GeradorDeTestes.Infra\GeradorDeTeste.Infra.csproj", "{0B3FF0BC-9CC3-47CF-9FA8-AFEB1EEA65A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

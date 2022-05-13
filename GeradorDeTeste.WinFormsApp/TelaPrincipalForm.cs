@@ -1,4 +1,5 @@
 ﻿using GeradorDeTeste.Dominio.ModuloMateria;
+using GeradorDeTeste.Infra.Compartilhado;
 using GeradorDeTeste.WinFormsApp.Compartilhado;
 using GeradorDeTeste.WinFormsApp.ModuloDisciplina;
 using GeradorDeTeste.WinFormsApp.ModuloMateria;
@@ -29,6 +30,7 @@ namespace GeradorDeTeste.WinFormsApp
 
 
         }
+
         public static TelaPrincipalForm Instancia
         {
             get;
@@ -42,8 +44,9 @@ namespace GeradorDeTeste.WinFormsApp
 
         private void disciplinaMenuItem_Click(object sender, EventArgs e)
         {
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
             tipoCadastro = "Disciplina";
-            ConfigurarToolBox(new ConfiguracaoToolBoxTarefa());
+            
 
             ListagemDisciplinaControl listagem = new();
             panelRegistros.Controls.Clear();
@@ -54,8 +57,8 @@ namespace GeradorDeTeste.WinFormsApp
 
         private void materiaMenuItem_Click(object sender, EventArgs e)
         {
-            tipoCadastro = "Materia";
-            ConfigurarToolBox(new ConfiguracaoToolBoxMateria());
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
+            tipoCadastro = "Materia";           
 
             ListagemMateriaControl listagem = new();
             panelRegistros.Controls.Clear();
@@ -64,8 +67,9 @@ namespace GeradorDeTeste.WinFormsApp
 
         private void QuestaoMenuItem_Click(object sender, EventArgs e)
         {
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
             tipoCadastro = "Questao";
-            ConfigurarToolBox(new ConfiguracaoToolBoxQuestao());
+           
 
             ListagemQuestaoControl listagem = new();
             panelRegistros.Controls.Clear();
@@ -74,16 +78,35 @@ namespace GeradorDeTeste.WinFormsApp
 
         private void fazerOTesteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
             ListagemTesteControl listagem = new();
             panelRegistros.Controls.Clear();
             panelRegistros.Controls.Add(listagem);
         }
 
-        private void ConfigurarToolBox(ConfiguracaoToolBoxBase config)
+        private void ConfigurarToolBox()
+        {
+            ConfiguracaoToolBoxBase config = controlador!.ObtemConfiguracaoToolbox();
+            if (config != null)
+            {
+                toolStripPrincipal.Enabled = true;
+                COnfiguracaoToolTip(config);
+                ConfiguravaoBotao(config);
+
+            }
+        }
+
+        private void COnfiguracaoToolTip(ConfiguracaoToolBoxBase config)
         {
             btnInserir.ToolTipText = config.ToolTipInserir;
             btnEditar.ToolTipText = config.ToolTipEditar;
             btnExcluir.ToolTipText = config.ToolTipExcluir;
+        }
+        private void ConfiguravaoBotao(ConfiguracaoToolBoxBase config)
+        {
+            btnInserir.Enabled = config.StatusInserir;
+            btnEditar.Enabled = config.StatusEditar;
+            btnExcluir.Enabled = config.StatusExcluir;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -114,38 +137,25 @@ namespace GeradorDeTeste.WinFormsApp
             controlador.Excluir();
         }
 
-        public void ConfigurarTelaPrincipal(ToolStripMenuItem disciplinaSelecionada)
+        public void ConfigurarTelaPrincipal(ToolStripMenuItem opcaoSelecionada)
         {
-            controlador = controladores["Disciplina"];
+            var tipo = opcaoSelecionada.Text;
 
-
-
-            if (disciplinaSelecionada == default)
+            if (tipo != "Disciplina" && contextoDados.Disciplinas.Count == 0)
             {
-                AtualizarMsgRodape("Selecione uma disciplina");
+                AtualizarMsgRodape("cadastre uma disciplina primeiro");
                 return;
             }
 
-            List<Materia> materias = new List<Materia>();
-            foreach (var item in contextoDados.Materias)
+            if (tipo == "Teste" && contextoDados.Materias.Count == 0)
             {
-                if (item.Disciplina == disciplinaSelecionada)
-                {
-                    materias.Add(item);
-                }
-            }
-            if (materias.Count == 0)
-            {
-                AtualizarMsgRodape("registre uma materia com essa disciplina primeiro");
+                AtualizarMsgRodape("cadastre uma Materia primeiro");
                 return;
             }
 
 
-            IniciaControladorQuestao(materias);
 
-            controlador = controladores["Questao"];
-
-
+            controlador = controladores![tipo];
 
             ConfigurarToolBox();
 
@@ -155,6 +165,17 @@ namespace GeradorDeTeste.WinFormsApp
         private void ConfigurarListagem()
         {
             throw new NotImplementedException();
+        }
+
+        private void InicializarCOntroladores()
+        {
+
+            var repositorioMateria = new RepositorioMateriaEmArquivo(contextoDados);
+            var repositorioDisciplina = new RepositorioMateriaEmArquivo(contextoDados);
+            controladores = new Dictionary<string, ControladorBase>();
+
+            controladores.Add("disciplina", new ControladorDisciplina(repositorioDisciplina, repositorioMateria));
+            controladores.Add("mateiras", new ControladorMateria(repositorioMateria, repositorioDisciplina));
         }
     }
 }

@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GeradorDeTeste.Dominio\GeradorDeTeste.Dominio.csproj" />
+    <ProjectReference Include="..\GeradorDeTestes.Infra\GeradorDeTeste.Infra.csproj" />
   </ItemGroup>
 
   <ItemGroup>

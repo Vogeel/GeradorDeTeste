@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GeradorDeTeste.Dominio.ModuloMateria
 {
-    internal class ValidarMateria : AbstractValidator<Materia>
+    public class ValidarMateria : AbstractValidator<Materia>
     {
         public ValidarMateria()
         {

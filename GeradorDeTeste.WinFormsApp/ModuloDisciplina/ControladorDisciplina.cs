@@ -110,9 +110,9 @@ namespace GeradorDeTeste.WinFormsApp.ModuloDisciplina
                 return;
             }
 
-            TelaPrincipalForm.Instancia.disciplinaSelecionada = disciplinaSelecionada;
-            TelaPrincipalForm.Instancia.disciplinaSelecionada.questoes = repositorioDisciplina.SelecionarQuestoes().Where(x => x.materia.Disciplina == TelaPrincipalForm.Instancia.disciplinaSelecionada).ToList();
-            TelaPrincipalForm.Instancia.ConfigurarTelaPrincipal();
+            //TelaPrincipalForm.Instancia.disciplinaSelecionada = disciplinaSelecionada;
+            //TelaPrincipalForm.Instancia.disciplinaSelecionada.questoes = repositorioDisciplina.SelecionarQuestoes().Where(x => x.materia.Disciplina == TelaPrincipalForm.Instancia.disciplinaSelecionada).ToList();
+            //TelaPrincipalForm.Instancia.ConfigurarTelaPrincipal();
         }
     
         public override UserControl ObtemListagem()
