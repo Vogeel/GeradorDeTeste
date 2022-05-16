@@ -19,10 +19,11 @@ namespace GeradorDeTeste.WinFormsApp.ModuloDisciplina
             InitializeComponent();
         }
 
-        public object ObtemNumeroDisciplinaSelecionado()
+        public int ObtemNumeroDisciplinaSelecionadas()
         {
             return GridDisciplina.SelecionarNumero<int>();
         }
+
 
         public void AtualizarRegistros(List<Disciplina> disciplinas)
         {

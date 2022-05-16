@@ -32,5 +32,15 @@ namespace GeradorDeTeste.Dominio.ModuloMateria
         {
             throw new NotImplementedException();
         }
+        public Materia Clone()
+        {
+            return new Materia
+            {
+                Numero = this.Numero,
+                Nome = this.Nome,
+                Serie = this.Serie,
+                Disciplina = this.Disciplina
+            };
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace GeradorDeTestes.Infra.Compartilhado
         protected DataContext dataContext;
         protected int contador = 0;
        
-        public RepositorioEmArquivoBase(DataContext dataContext)
+        public RepositorioBase(DataContext dataContext)
         {
             this.dataContext = dataContext;
         }

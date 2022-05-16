@@ -8,21 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentValidation.Results;
 using System.Windows.Forms;
+using GeradorDeTeste.Dominio.ModuloMateria;
+using GeradorDeTeste.Infra.ModuloDisciplina;
+using GeradorDeTeste.Infra.ModuloMateria;
 
 namespace GeradorDeTeste.WinFormsApp.ModuloDisciplina
 {
     public class ControladorDisciplina : ControladorBase
     {
-        private IRepositorioDisciplina repositorioDisciplina;
+        private RepositorioDisciplinaEmArquivo repositorioDisciplina;
         private ListagemDisciplinaControl listagemDisciplinas;
+        private RepositorioMateriaEmArquivo repositorioMateria;
 
-        public ControladorDisciplina(IRepositorioDisciplina repositorioDisciplina)
+        public ControladorDisciplina(RepositorioDisciplinaEmArquivo repositorioDisciplina, RepositorioMateriaEmArquivo repositorioMateria)
+        {
+            this.repositorioDisciplina = repositorioDisciplina;
+            this.repositorioMateria = repositorioMateria;
+        }
+
+        public ControladorDisciplina(RepositorioDisciplinaEmArquivo repositorioDisciplina)
         {
             this.repositorioDisciplina = repositorioDisciplina;
         }
+
         public override Disciplina ObtemSelecionada()
         {
-            var numero = listagemDisciplinas.ObtemNumeroDisciplinaSelecionado();
+            var numero = listagemDisciplinas.ObtemNumeroDisciplinaSelecionadas();
 
             return repositorioDisciplina.SelecionarPorNumero(numero);
         }
@@ -77,6 +88,15 @@ namespace GeradorDeTeste.WinFormsApp.ModuloDisciplina
                     MessageBox.Show(validation.Errors[0].ToString());
                 CarregarDisciplinas();
             }
+            List<Materia> materias = repositorioMateria.ObterRegistros();
+            foreach (var item in materias)
+            {
+                if (item.Disciplina == disciplinaSelecionada)
+                {
+                    TelaPrincipalForm.Instancia!.AtualizarMsgRodape("Esta disciplina não pode ser excluída pois está atrelada a alguma matéria");
+                    return;
+                }
+            }
         }
 
         public override void Inserir()
@@ -96,7 +116,7 @@ namespace GeradorDeTeste.WinFormsApp.ModuloDisciplina
 
         public override ConfiguracaoToolBoxBase ObtemConfiguracaoToolbox()
         {
-            throw new NotImplementedException();
+            return new ConfiguracaoToolBoxDisciplina();
         }
 
         public override void AtualizarQuestoes()
@@ -110,23 +130,28 @@ namespace GeradorDeTeste.WinFormsApp.ModuloDisciplina
                 return;
             }
 
-            //TelaPrincipalForm.Instancia.disciplinaSelecionada = disciplinaSelecionada;
-            //TelaPrincipalForm.Instancia.disciplinaSelecionada.questoes = repositorioDisciplina.SelecionarQuestoes().Where(x => x.materia.Disciplina == TelaPrincipalForm.Instancia.disciplinaSelecionada).ToList();
-            //TelaPrincipalForm.Instancia.ConfigurarTelaPrincipal();
         }
     
         public override UserControl ObtemListagem()
         {
-            throw new NotImplementedException();
+            if (listagemDisciplinas == null)
+                listagemDisciplinas = new ListagemDisciplinaControl();
+
+            CarregarDisciplinas();
+
+            return listagemDisciplinas;
         }
         private void CarregarDisciplinas()
         {
             List<Disciplina> disciplinas = repositorioDisciplina.SelecionarTodos();
-
-
-
             listagemDisciplinas.AtualizarRegistros(disciplinas);
-            TelaPrincipalForm.Instancia.AtualizarMsgRodape($"Visualizando {disciplinas.Count} disciplina(s)");
+            TelaPrincipalForm.Instancia!.AtualizarMsgRodape($"Visualizando {disciplinas.Count} disciplina(s)");
+        }
+            
+        private Disciplina ObtemDisciplinaSelecionada()
+        {
+            var numero = listagemDisciplinas!.ObtemNumeroDisciplinaSelecionadas();
+            return repositorioDisciplina.SelecionarPorNumero(numero);
         }
     }
 }

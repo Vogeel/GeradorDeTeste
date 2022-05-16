@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FluentValidation.Results;
+using GeradorDeTeste.Dominio.ModuloMateria;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,12 @@ namespace GeradorDeTeste.WinFormsApp.ModuloMateria
 {
     public partial class TelaCadastroMateriaForm : Form
     {
-        public TelaCadastroMateriaForm()
+        public TelaCadastroMateriaForm(List<Dominio.ModuloDisciplina.Disciplina> disciplinas)
         {
             InitializeComponent();
         }
+
+        public object Materia { get; internal set; }
+        public Func<Materia, ValidationResult> GravarRegistro { get; internal set; }
     }
 }

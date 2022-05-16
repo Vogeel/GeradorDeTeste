@@ -2,7 +2,7 @@
 
 namespace GeradorDeTeste.WinFormsApp
 {
-    public class ConfiguracaoToolBoxTarefa : ConfiguracaoToolBoxBase
+    public class ConfiguracaoToolBoxDisciplina : ConfiguracaoToolBoxBase
     {
         public override string ToolTipInserir { get { return "Inserir uma nova disciplina "; } }
         public override string ToolTipEditar { get { return "Editar uma disciplina existente "; } }

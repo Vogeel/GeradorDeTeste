@@ -1,5 +1,7 @@
 ﻿using GeradorDeTeste.Dominio.ModuloMateria;
 using GeradorDeTeste.Infra.Compartilhado;
+using GeradorDeTeste.Infra.ModuloDisciplina;
+using GeradorDeTeste.Infra.ModuloMateria;
 using GeradorDeTeste.WinFormsApp.Compartilhado;
 using GeradorDeTeste.WinFormsApp.ModuloDisciplina;
 using GeradorDeTeste.WinFormsApp.ModuloMateria;
@@ -27,11 +29,12 @@ namespace GeradorDeTeste.WinFormsApp
         {
             InitializeComponent();
             Instancia = this;
-
+            labelRodape.Text = string.Empty;
+            InicializarCOntroladores();
 
         }
 
-        public static TelaPrincipalForm Instancia
+        public static TelaPrincipalForm? Instancia
         {
             get;
             private set;
@@ -111,19 +114,7 @@ namespace GeradorDeTeste.WinFormsApp
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            if (tipoCadastro == "Disciplina")
-            {
-                TelaCadastroDisciplinaForm tela = new();
-                
-            }
-            else if (tipoCadastro == "Materia")
-            {
-                TelaCadastroMateriaForm tela = new();
-            }
-            else if (tipoCadastro == "Questao")
-            {
-                TelaCadastroQuestaoForm tela = new();
-            }
+            controlador.Inserir();
            
         }
 
@@ -171,7 +162,7 @@ namespace GeradorDeTeste.WinFormsApp
         {
 
             var repositorioMateria = new RepositorioMateriaEmArquivo(contextoDados);
-            var repositorioDisciplina = new RepositorioMateriaEmArquivo(contextoDados);
+            var repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contextoDados);
             controladores = new Dictionary<string, ControladorBase>();
 
             controladores.Add("disciplina", new ControladorDisciplina(repositorioDisciplina, repositorioMateria));

@@ -32,10 +32,7 @@ namespace GeradorDeTeste.Infra.Compartilhado
 
         public List<Materia> Materias { get; set; }
 
-        //public List<Questao> Compromissos { get; set; }
-
-        //public List<Teste> Despesas { get; set; }
-
+      
         public void GravarDados()
         {
             serializador.GravarDadosEmArquivo(this);
@@ -52,11 +49,11 @@ namespace GeradorDeTeste.Infra.Compartilhado
                 this.Materias.AddRange(ctx.Materias);
 
             //if (ctx.Questoes.Any())
-            //    this.Questoes.AddRange(ctx.Questoes);
+            //   this.Questoes.AddRange(ctx.Questoes);
 
             //if (ctx.Testes.Any())
             //    this.Testes.AddRange(ctx.Testes);
         }
     }
-    }
+    
 }

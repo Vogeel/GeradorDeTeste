@@ -18,5 +18,6 @@ namespace GeradorDeTeste.Dominio.Compartilhado
         List<T> SelecionarTodos();
 
         T SelecionarPorNumero(int numero);
+
     }
 }

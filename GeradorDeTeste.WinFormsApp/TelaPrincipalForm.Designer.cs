@@ -36,15 +36,18 @@
             this.executarTesteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fazerOTesteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelRodapePrin = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripPrincipal = new System.Windows.Forms.ToolStrip();
             this.btnInserir = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.panelRegistros = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStripPrincipal.SuspendLayout();
+            this.panelRegistros.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -107,6 +110,7 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelRodapePrin,
             this.labelRodape});
             this.statusStrip1.Location = new System.Drawing.Point(0, 330);
             this.statusStrip1.Name = "statusStrip1";
@@ -114,10 +118,10 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // labelRodape
+            // labelRodapePrin
             // 
-            this.labelRodape.Name = "labelRodape";
-            this.labelRodape.Size = new System.Drawing.Size(0, 17);
+            this.labelRodapePrin.Name = "labelRodapePrin";
+            this.labelRodapePrin.Size = new System.Drawing.Size(0, 17);
             // 
             // toolStripPrincipal
             // 
@@ -165,11 +169,26 @@
             // 
             // panelRegistros
             // 
+            this.panelRegistros.Controls.Add(this.toolStrip1);
             this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRegistros.Location = new System.Drawing.Point(0, 57);
             this.panelRegistros.Name = "panelRegistros";
             this.panelRegistros.Size = new System.Drawing.Size(668, 273);
             this.panelRegistros.TabIndex = 6;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(668, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // labelRodape
+            // 
+            this.labelRodape.Name = "labelRodape";
+            this.labelRodape.Size = new System.Drawing.Size(44, 17);
+            this.labelRodape.Text = "rodape";
             // 
             // TelaPrincipalForm
             // 
@@ -189,6 +208,8 @@
             this.statusStrip1.PerformLayout();
             this.toolStripPrincipal.ResumeLayout(false);
             this.toolStripPrincipal.PerformLayout();
+            this.panelRegistros.ResumeLayout(false);
+            this.panelRegistros.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,6 +230,9 @@
         private System.Windows.Forms.ToolStripButton btnEditar;
         private System.Windows.Forms.ToolStripButton btnExcluir;
         private System.Windows.Forms.Panel panelRegistros;
+
+        private System.Windows.Forms.ToolStripStatusLabel labelRodapePrin;
+        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripStatusLabel labelRodape;
     }
 }
