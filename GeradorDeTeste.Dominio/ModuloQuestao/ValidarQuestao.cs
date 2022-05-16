@@ -12,7 +12,7 @@ namespace GeradorDeTeste.Dominio.ModuloQuestao
     {
         public ValidarQuestao()
         {
-            RuleFor(x => x.questao)
+            RuleFor(x => x.Enunciado)
                 .NotNull().NotEmpty()
                 .WithMessage("Nome da questao é obrigatorio");
         }

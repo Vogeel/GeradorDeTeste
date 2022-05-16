@@ -19,6 +19,7 @@ namespace GeradorDeTeste.Infra.Compartilhado
         {
             Disciplinas = new List<Disciplina>();
             Materias = new List<Materia>();
+            Questoes = new List<Questao>();
         }
 
         public DataContext(ISerializador serializador) : this()
@@ -31,6 +32,7 @@ namespace GeradorDeTeste.Infra.Compartilhado
         public List<Disciplina> Disciplinas { get; set; }
 
         public List<Materia> Materias { get; set; }
+        public List<Questao> Questoes { get; set; }
 
       
         public void GravarDados()
@@ -48,8 +50,8 @@ namespace GeradorDeTeste.Infra.Compartilhado
             if (ctx.Materias.Any())
                 this.Materias.AddRange(ctx.Materias);
 
-            //if (ctx.Questoes.Any())
-            //   this.Questoes.AddRange(ctx.Questoes);
+            if (ctx.Questoes.Any())
+               this.Questoes.AddRange(ctx.Questoes);
 
             //if (ctx.Testes.Any())
             //    this.Testes.AddRange(ctx.Testes);

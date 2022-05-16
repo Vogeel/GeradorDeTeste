@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBoxMaterias = new System.Windows.Forms.ComboBox();
+            this.comboBoxBimestres = new System.Windows.Forms.ComboBox();
+            this.textBoxQuestao = new System.Windows.Forms.TextBox();
+            this.textBoxAlternativas = new System.Windows.Forms.TextBox();
             this.AlternativascheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.btnAlternativa = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -40,37 +40,39 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxDisciplinas = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // comboBoxMaterias
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(110, 77);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 0;
+            this.comboBoxMaterias.FormattingEnabled = true;
+            this.comboBoxMaterias.Location = new System.Drawing.Point(110, 77);
+            this.comboBoxMaterias.Name = "comboBoxMaterias";
+            this.comboBoxMaterias.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxMaterias.TabIndex = 0;
             // 
-            // comboBox2
+            // comboBoxBimestres
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(110, 106);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 1;
+            this.comboBoxBimestres.FormattingEnabled = true;
+            this.comboBoxBimestres.Location = new System.Drawing.Point(110, 106);
+            this.comboBoxBimestres.Name = "comboBoxBimestres";
+            this.comboBoxBimestres.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxBimestres.TabIndex = 1;
             // 
-            // textBox1
+            // textBoxQuestao
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 23);
-            this.textBox1.TabIndex = 2;
+            this.textBoxQuestao.Location = new System.Drawing.Point(110, 22);
+            this.textBoxQuestao.Name = "textBoxQuestao";
+            this.textBoxQuestao.Size = new System.Drawing.Size(219, 23);
+            this.textBoxQuestao.TabIndex = 2;
             // 
-            // textBox2
+            // textBoxAlternativas
             // 
-            this.textBox2.Location = new System.Drawing.Point(110, 135);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 23);
-            this.textBox2.TabIndex = 3;
+            this.textBoxAlternativas.Location = new System.Drawing.Point(110, 135);
+            this.textBoxAlternativas.Name = "textBoxAlternativas";
+            this.textBoxAlternativas.Size = new System.Drawing.Size(121, 23);
+            this.textBoxAlternativas.TabIndex = 3;
             // 
             // AlternativascheckedListBox
             // 
@@ -112,7 +114,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 56);
+            this.label1.Location = new System.Drawing.Point(53, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 15);
             this.label1.TabIndex = 8;
@@ -145,11 +147,30 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Alternativas:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(38, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 15);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Disciplinas: ";
+            // 
+            // comboBoxDisciplinas
+            // 
+            this.comboBoxDisciplinas.FormattingEnabled = true;
+            this.comboBoxDisciplinas.Location = new System.Drawing.Point(110, 51);
+            this.comboBoxDisciplinas.Name = "comboBoxDisciplinas";
+            this.comboBoxDisciplinas.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxDisciplinas.TabIndex = 12;
+            // 
             // TelaCadastroQuestaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 320);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.comboBoxDisciplinas);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -158,10 +179,10 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnAlternativa);
             this.Controls.Add(this.AlternativascheckedListBox);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBoxAlternativas);
+            this.Controls.Add(this.textBoxQuestao);
+            this.Controls.Add(this.comboBoxBimestres);
+            this.Controls.Add(this.comboBoxMaterias);
             this.Name = "TelaCadastroQuestaoForm";
             this.Text = "TelaCadastroQuestaoForm";
             this.ResumeLayout(false);
@@ -171,10 +192,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox comboBoxMaterias;
+        private System.Windows.Forms.ComboBox comboBoxBimestres;
+        private System.Windows.Forms.TextBox textBoxQuestao;
+        private System.Windows.Forms.TextBox textBoxAlternativas;
         private System.Windows.Forms.CheckedListBox AlternativascheckedListBox;
         private System.Windows.Forms.Button btnAlternativa;
         private System.Windows.Forms.Button button2;
@@ -183,5 +204,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBoxDisciplinas;
     }
 }

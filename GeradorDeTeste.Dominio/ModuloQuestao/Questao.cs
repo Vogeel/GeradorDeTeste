@@ -1,4 +1,5 @@
 ﻿using GeradorDeTeste.Dominio.Compartilhado;
+using GeradorDeTeste.Dominio.ModuloDisciplina;
 using GeradorDeTeste.Dominio.ModuloMateria;
 using System;
 using System.Collections.Generic;
@@ -10,28 +11,42 @@ namespace GeradorDeTeste.Dominio.ModuloQuestao
 {
     public class Questao : EntidadeBase<Questao>
     {
-        public string questao;
-        public Dictionary<string, bool> alternativas = new();
-        public Materia materia;
-        public int bimestre;
+        public string Enunciado { get; set; }
+        public Disciplina Disciplina { get; set; }
+        public Materia Materia { get; set; }
+        public List<Alternativas> Alternativas { get; set; }
 
-        public override string ToString()
+
+        public Questao()
         {
-            StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine(questao);
-
-            foreach (var item in alternativas)
-            {
-                sb.AppendLine(item.Key);
-            }
-
-            return sb.ToString();
+            Alternativas = new();
         }
 
-        public override void Atualizar(Questao registros)
+        public void AdicionarAlternativas(List<Alternativas> alts)
         {
-            throw new NotImplementedException();
+            foreach (var item in alts)
+                if (Alternativas.Exists(x => x.Equals(item)) == false)
+                    this.Alternativas.Add(item);
+        }
+
+        public override void Atualizar(Questao registro)
+        {
+            this.Enunciado = registro.Enunciado;
+            this.Disciplina = registro.Disciplina;
+            this.Materia = registro.Materia;
+            this.Alternativas = registro.Alternativas;
+        }
+
+        public Questao Clone()
+        {
+            return new Questao
+            {
+                Numero = this.Numero,
+                Enunciado = this.Enunciado,
+                Disciplina = this.Disciplina,
+                Materia = this.Materia,
+                Alternativas = this.Alternativas
+            };
         }
     }
 }
